@@ -171,13 +171,12 @@ class Latinword {
           else {
             this.genpl=stem;
           }
-          if (iumwordslist.includes(gen)==true) { //accounting for ium words
+          if (iumwordslist.includes(gen)) { //accounting for ium words
             this.genpl=stem+"ium";
           }
           else {
             this.genpl=stem+"um";
           }
-          this.genpl=stem+"um"; 
           this.datpl=stem+"ibus";
           this.ablpl=stem+"ibus";
         }
