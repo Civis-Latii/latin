@@ -177,11 +177,11 @@ class Latinword {
           this.dat=stem+"i";
           this.abl=stem+"e";
 
-          if (!listofiumwords.includes(this.gen)) {
-              this.genpl=stem+"um";
+          if (listofiumwords.includes(gen)) { //accounting for 'ium' words 
+              this.genpl=stem+"ium";
           }
-          else { //accounting for 'ium' words
-              this.genpl=stem+"ium"
+          else {
+              this.genpl=stem+"um"
           }
               
           this.datpl=stem+"ibus";
@@ -247,7 +247,7 @@ for (let i=0;i<words.length;i+=4) { //.length/4 means only going 25% of the way 
   wordlist.push(word);
 }
 
-let iterablevalue = 0
+let iterablevalue = 0    
 async function changeendings() {
   document.getElementById("ggg").innerHTML=`
 nom: ${wordlist[iterablevalue].nom}<br>
