@@ -251,6 +251,7 @@ let iterablevalue = 0
 
 function incrementvalue() {
   iterablevalue+=1;
+  quiz();
 }
 
 async function changeendings() {
@@ -299,7 +300,7 @@ document.getElementById("abl").onclick = function() {
 }
 
 
-async function startquiz() {
+async function quiz() {
     if (displaynom) { //displays case if display [case] is true
       document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nom}` 
     }
