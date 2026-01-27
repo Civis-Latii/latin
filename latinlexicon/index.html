@@ -21,7 +21,8 @@
         <input type="checkbox" id="dat" name="dat" value="dat">Dative</input>
         <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
 
-        <button id="quiz" onclick="startquiz()">Quiz!</button>
+        <button id="quiz" onclick="startquiz()">Quiz!</button><br>
+        <button id="next" onclick="iterablevalue+=1">Next!</button>
     </body>
 </html>
 
@@ -331,7 +332,6 @@ async function startquiz() {
       document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].ablpl}`
     }
     }
-
 
   
 </script>
