@@ -22,7 +22,7 @@
         <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
 
         <button id="quiz" onclick="startquiz()">Quiz!</button><br>
-        <button id="next" onclick="iterablevalue+=1">Next!</button>
+        <button id="next" onclick="incrementvalue()">Next!</button>
     </body>
 </html>
 
@@ -248,6 +248,11 @@ for (let i=0;i<words.length;i+=4) { //.length/4 means only going 25% of the way 
 }
 
 let iterablevalue = 0
+
+function incrementvalue() {
+  iterablevalue+=1;
+}
+
 async function changeendings() {
   document.getElementById("ggg").innerHTML=`
 nom: ${wordlist[iterablevalue].nom}<br>
