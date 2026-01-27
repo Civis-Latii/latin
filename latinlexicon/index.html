@@ -262,16 +262,16 @@ genpl: ${wordlist[iterablevalue].genpl}<br>
 datpl: ${wordlist[iterablevalue].datpl}<br>
 ablpl: ${wordlist[iterablevalue].ablpl}<br>`
   
-  iterablevalue+=1
+  iterablevalue+=1;
 
     }
 
-let displaynom = false //initial value of display [case] is false
-let displayvoc = false
-let displayacc = false
-let displaygen = false
-let displaydat = false
-let displayabl = false
+let displaynom = false; //initial value of display [case] is false
+let displayvoc = false;
+let displayacc = false;
+let displaygen = false;
+let displaydat = false;
+let displayabl = false;
 
 document.getElementById("nom").onclick = function() { //when checkbox clicked toggle value of case
     displaynom = !displaynom;
