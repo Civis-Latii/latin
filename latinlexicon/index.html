@@ -286,44 +286,44 @@ document.getElementById("abl").onclick = function() {
 
 
 async function quiz() {
+    let quizwords = [];
     document.getElementById("placeholder").innerHTML="hi"; //staring with blank field
     if (displaynom) { //displays case if display [case] is true
-      document.getElementById("placeholder").innerHTML+=`${randword.nom}<br>` //<br> works - it is formatted like the ${}
+      quizwords.push(randword.nom) //<br> works - it is formatted like the ${}
     }
     if (displayvoc) {
-      document.getElementById("placeholder").innerHTML+=`${randword.voc}<br>`
+      quizwords.push(randword.voc)
     }
     if (displayacc) {
-      document.getElementById("placeholder").innerHTML+=`${randword.acc}<br>`
+      quizwords.push(randword.acc)
     }
     if (displaygen) {
-      document.getElementById("placeholder").innerHTML+=`${randword.gen}<br>`
+      quizwords.push(randword.gen)
     }
     if (displaydat) {
-      document.getElementById("placeholder").innerHTML+=`${randword.dat}<br>`
+      quizwords.push(randword.dat)
     }
     if (displayabl) {
-      document.getElementById("placeholder").innerHTML+=`${randword.abl}<br>`
+      quizwords.push(randword.abl)
     }
     if (displaynompl) {
-      document.getElementById("placeholder").innerHTML+=`${randword.nompl}`
+      quizwords.push(randword.nompl)
     }
     if (displayvocpl) {
-      document.getElementById("placeholder").innerHTML+=`${randword.vocpl}`
+      quizwords.push(randword.vocpl)
     }
     if (displayaccpl) {
-      document.getElementById("placeholder").innerHTML=`${randword.accpl}`
+      quizwords.push(randword.accpl)
     }
     if (displaygenpl) {
-      document.getElementById("placeholder").innerHTML=`${randword.genpl}`
+      quizwords.push(randword.genpl)
     }
     if (displaydatpl) {
-      document.getElementById("placeholder").innerHTML=`${randword.datpl}`
+      quizwords.push(randword.datpl)
     }
     if (displayablpl) {
-      document.getElementById("placeholder").innerHTML=`${randword.ablpl}`
+      quizwords.push(randword.ablpl)
     }
     }
-
   
 </script>
