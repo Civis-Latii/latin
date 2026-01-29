@@ -287,43 +287,44 @@ document.getElementById("abl").onclick = function() {
 
 async function quiz() {
     let quizwords = [];
-    document.getElementById("placeholder").innerHTML="hi"; //staring with blank field
+    document.getElementById("placeholder").innerHTML="hi"; //starting with blank field
     if (displaynom) { //displays case if display [case] is true
-      quizwords.push(randword.nom) //<br> works - it is formatted like the ${}
+      quizwords.push(randword.nom); //<br> works - it is formatted like the ${}
     }
     if (displayvoc) {
-      quizwords.push(randword.voc)
+      quizwords.push(randword.voc);
     }
     if (displayacc) {
-      quizwords.push(randword.acc)
+      quizwords.push(randword.acc);
     }
     if (displaygen) {
-      quizwords.push(randword.gen)
+      quizwords.push(randword.gen);
     }
     if (displaydat) {
-      quizwords.push(randword.dat)
+      quizwords.push(randword.dat);
     }
     if (displayabl) {
-      quizwords.push(randword.abl)
+      quizwords.push(randword.abl);
     }
     if (displaynompl) {
-      quizwords.push(randword.nompl)
+      quizwords.push(randword.nompl);
     }
     if (displayvocpl) {
-      quizwords.push(randword.vocpl)
+      quizwords.push(randword.vocpl);
     }
     if (displayaccpl) {
-      quizwords.push(randword.accpl)
+      quizwords.push(randword.accpl);
     }
     if (displaygenpl) {
-      quizwords.push(randword.genpl)
+      quizwords.push(randword.genpl);
     }
     if (displaydatpl) {
-      quizwords.push(randword.datpl)
+      quizwords.push(randword.datpl);
     }
     if (displayablpl) {
-      quizwords.push(randword.ablpl)
+      quizwords.push(randword.ablpl);
     }
     }
-  
+    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
+
 </script>
