@@ -2,7 +2,7 @@
 <html>
   <title>Latinlexicon</title>
     <body>
-`       <p id="placeholder">Placeholder</p>
+       <p id="placeholder">Placeholder</p>
         <style>
             body{
                 background-image: url('roman background.png');
@@ -22,13 +22,19 @@
         <button id="quiz" onclick="quiz()">Quiz!</button>
         <button id="next" onclick="changevalue()">Next!</button>
 
-        <input type="button" onclick="start()">Start!<input><br>
+        <button type="button" onclick="start()">Start!<button><br>
         <input type="text" id="answer" name="answer" value=""></input>
 
     </body>
 </html>
 
+
 <script>
+
+//Add buttons so users can select what they think is the correct answer
+//add way to check answer and click next
+//add skip (FAR DOWN THE LINE)
+
 class Latinword {
     constructor(nom,gen,gender,english) {
         this.gender=gender;
