@@ -288,15 +288,32 @@ document.getElementById("abl").onclick = function() {
     displayabl = !displayabl;
 }
 
+function initialisequiz() {
+  let quizwords = [];
+  document.getElementById("placeholder").innerHTML="p l a c e h o l d e r  o n e  s e c o n d";
+  if (displaynom) {quizwords.push(randword.nom);}
+  if (displayvoc) {quizwords.push((randword.voc,"voc","sg",randomword.gender));}
+  if (displayacc) {quizwords.push((randword.acc,"acc","sg",randword.gender));}
+  if (displaygen) {quizwords.push((randword.gen,"gen","sg",randword.gender));}
+  if (displaydat) {quizwords.push((randword.dat,"dat","sg",randword.gender));}
+  if (displayabl) {quizwords.push((randword.abl,"abl","sg",randword.gender));}
+  if (displaynompl) {quizwords.push((randword.nompl,"nom","pl",randword.gender));}
+  if (displayvocpl) {quizwords.push((randword.vocpl,"voc","pl",randword.gender));}
+  if (displayaccpl) {quizwords.push((randword.accpl,"acc","pl",randword.gender));}
+  if (displaygenpl) {quizwords.push((randword.genpl,"gen","pl",randword.gender));}
+  if (displaydatpl) {quizwords.push((randword.datpl,"dat","pl",randword.gender));}
+  if (displayablpl) {quizwords.push((randword.ablpl,"abl","pl",randword.gender));}
+  return quizwords
+}
 
 async function quiz() {
     let quizwords = [];
     document.getElementById("placeholder").innerHTML="p l a c e h o l d e r  o n e  s e c o n d";
     if (displaynom) {quizwords.push(randword.nom);}
-    if (displayvoc) {quizwords.push((randword.voc,"voc","sg",randomword.gender));}
-    if (displayacc) {quizwords.push((randword.acc,"acc","sg",randword.gender));}
-    if (displaygen) {quizwords.push((randword.gen,"gen","sg",randword.gender));}
-    if (displaydat) {quizwords.push((randword.dat,"dat","sg",randword.gender));}
+    if (displayvoc) {quizwords.push(randword.voc);}
+    if (displayacc) {quizwords.push(randword.acc);}
+    if (displaygen) {quizwords.push(randword.gen);}
+    if (displaydat) {quizwords.push(randword.dat);}
     if (displayabl) {quizwords.push((randword.abl,"abl","sg",randword.gender));}
     if (displaynompl) {quizwords.push((randword.nompl,"nom","pl",randword.gender));}
     if (displayvocpl) {quizwords.push((randword.vocpl,"voc","pl",randword.gender));}
