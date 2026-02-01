@@ -339,20 +339,45 @@ function question(quizwords) {
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];   
 }
 
+document.getElementById("abl").onclick = function() {
+    displayabl = !displayabl;
+}
 
-document.getElementById("setnom").onclick = function() {Case = "nom";}
-document.getElementById("setvoc").onclick = function() {Case = "voc";}
-document.getElementById("setacc").onclick = function() {Case = "acc";}
-document.getElementById("setgen").onclick = function() {Case = "gen";}
-document.getElementById("setdat").onclick = function() {Case = "dat";}
-document.getElementById("setabl").onclick = function() {Case = "abl";}
+document.getElementById("setnom").addEventListener("click", function() {
+  Case = "nom";
+})
+document.getElementById("setvoc").addEventListener("click", function() {
+  Case = "voc";
+})
+document.getElementById("setacc").addEventListener("click", function() {
+  Case = "acc";
+})
+document.getElementById("setgen").addEventListener("click", function() {
+  Case = "gen";
+})
+document.getElementById("setdat").addEventListener("click", function() {
+  Case = "dat";
+})
+document.getElementById("setabl").addEventListener("click", function() {
+  Case = "abl";
+})
 
-document.getElementById("setsg").onclick = function() {Num = "sg";}
-document.getElementById("setpl").onclick = function() {Num = "pl";}
+document.getElementById("setsg").addEventListener("click", function() {
+  Num = "sg";
+})
+document.getElementById("setpl").addEventListener("click", function() {
+  Num = "pl";
+})
 
-document.getElementById("setfem").onclick = function() {Gender = 'f';}
-document.getElementById("setmasc").onclick = function() {Gender = 'm';}
-document.getElementById("setneut").onclick = function() { Gender = 'n';}
+document.getElementById("setfem").addEventListener("click", function() {
+  Gender = 'f';
+})
+document.getElementById("setmasc").addEventListener("click", function() {
+  Gender = 'm';
+})
+document.getElementById("setneut").addEventListener("click", function() {
+  Gender = 'n';
+})
 
 document.getElementById("displaystuff").innerHTML=Case;
 
