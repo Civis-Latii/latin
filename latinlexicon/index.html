@@ -293,24 +293,24 @@ let Num = "";
 let Gender = "";
 
 
-document.getElementById("nom").onclick = function() { //when checkbox clicked toggle value of case
+document.getElementById("nom").addEventListener("click", function() { //when checkbox clicked toggle value of case
     displaynom = !displaynom;
-}
-document.getElementById("voc").onclick = function() {
+})
+document.getElementById("voc").addEventListener("click", function() {
     displayvoc = !displayvoc;
-}
-document.getElementById("acc").onclick = function() {
+})
+document.getElementById("acc").addEventListener("click", function() {
     displayacc = !displayacc;
-}
-document.getElementById("gen").onclick = function() {
+})
+document.getElementById("gen").addEventListener("click", function() {
     displaygen = !displaygen;
-}
-document.getElementById("dat").onclick = function() {
+})
+document.getElementById("dat").addEventListener("click", function() {
     displaydat = !displaydat;
-}
-document.getElementById("abl").onclick = function() {
+})
+document.getElementById("abl").addEventListener("click", function() {
     displayabl = !displayabl;
-}
+})
 
 function returnquizwords() {
   let randword = random();
@@ -327,58 +327,61 @@ function returnquizwords() {
   if (displaygenpl) {quizwords.push(randword.genpl);}
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
-  return quizwords;
+  return [quizwords,randword];
 }
 
 function quiz() {
   question(returnquizwords());
 }
 
-function question(quizwords) {
-    
-    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];   
-}
 
-document.getElementById("abl").onclick = function() {
-    displayabl = !displayabl;
+function question(quizwords) {
+    let word = quizwords[0][Math.floor(Math.random() * quizwords.length)];
+    document.getElementById("placeholder").innerHTML=randwordform;
+    let randword = quizwords[1];
+    if (word === randword[Case+Num]) {
+      document.getElementById("displaystuff").innerHTML="Correct!";
+}
+    else {
+      document.getElementById("displaystuff").innerHTML="Incorrect!";
+    }
 }
 
 document.getElementById("setnom").addEventListener("click", function() {
   Case = "nom";
-})
+});
 document.getElementById("setvoc").addEventListener("click", function() {
   Case = "voc";
-})
+});
 document.getElementById("setacc").addEventListener("click", function() {
   Case = "acc";
-})
+});
 document.getElementById("setgen").addEventListener("click", function() {
   Case = "gen";
-})
+});
 document.getElementById("setdat").addEventListener("click", function() {
   Case = "dat";
-})
+});
 document.getElementById("setabl").addEventListener("click", function() {
   Case = "abl";
-})
+});
 
 document.getElementById("setsg").addEventListener("click", function() {
   Num = "sg";
-})
+});
 document.getElementById("setpl").addEventListener("click", function() {
   Num = "pl";
-})
+});
 
 document.getElementById("setfem").addEventListener("click", function() {
   Gender = 'f';
-})
+});
 document.getElementById("setmasc").addEventListener("click", function() {
   Gender = 'm';
-})
+});
 document.getElementById("setneut").addEventListener("click", function() {
   Gender = 'n';
-})
+});
 
-document.getElementById("displaystuff").innerHTML=Case;
 
 </script>
