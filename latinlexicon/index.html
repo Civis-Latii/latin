@@ -333,17 +333,20 @@ function quiz() {
 }
 
 
-function question(quizwords) {
+function question(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
 
-    if (word == randword[Case+Num]) {
+    if (Num == "sg") { //preventing the nonexistent "[case]sg" property beig called
+      Num = "";
+    }
+
+    if (word === randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Correct!";
 }
     else {
       document.getElementById("displaystuff").innerHTML="Incorrect!";
     }
-    document.getElementById("displaystuff").innerHTML=randword[Case+Num];
 }
 
 document.getElementById("setnom").addEventListener("click", function() {
