@@ -340,7 +340,7 @@ function question(quizwords,randword) {
     if (Num == "sg") { //preventing the nonexistent "[case]sg" property being called
       Num = "";
     }
-    if (word == randword[Case+Num] && (randword[gender].includes(Gender))) {
+    if (word == randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Correct!";
     }
     else if (word !== randword[Case+Num]) {
