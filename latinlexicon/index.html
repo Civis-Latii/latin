@@ -376,6 +376,11 @@ function quiz() {
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
 
+  if (quizwords.length == 0) {
+    document.getElementById("displaystuff").innerHTML="Please select case before quizzing";
+    return;
+  }
+
   let word = quizwords[Math.floor(Math.random() * quizwords.length)];
 
   currentword = randword;
