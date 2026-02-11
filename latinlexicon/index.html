@@ -11,7 +11,7 @@
                 background-size: cover;
             }
         </style>
-
+    
         <input type="checkbox" id="nom" name="nom" value="nom">Nominative</input>
         <input type="checkbox" id="voc" name="voc" value="voc">Vocative</input>
         <input type="checkbox" id="acc" name="acc" value="acc">Accusative</input>
@@ -287,9 +287,6 @@ let Case = "";
 let Num = "";
 let Gender = "";
 
-let currentword = "";
-let currentform = "";
-
 
 document.getElementById("nom").addEventListener("click", function() { //when checkbox clicked toggle value of case
     displaynomsg = !displaynomsg
@@ -347,7 +344,8 @@ document.getElementById("neut").addEventListener("click", function() {
   Gender = 'n';
 });
 
-
+let currentword = null;
+let currentform = null;
 
 function quiz() {
   let randword = random();
@@ -374,7 +372,10 @@ function quiz() {
 
 }
 
-document.getElementById("checkans").addEventListener("click",checkans(currentword,currentform))
+document.getElementById("checkans").addEventListener("click",function(){
+  quiz()
+  checkans(currentword,currentform)
+})
 
 function checkans(quizwords,randword) {
     
