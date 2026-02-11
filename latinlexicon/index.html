@@ -376,21 +376,7 @@ function quiz() {
   currentform = word;
 
   document.getElementById("placeholder").innerHTML=word;
-
 }
-
-document.getElementById("quiz").addEventListener("click",function(){
-  quiz()
-});
-
-
-document.getElementById("checkans").addEventListener("click",function(){
-  if (!currentword) {
-    document.getElementById("displaystuff").innerHTML="Please select case before quizzing!";
-    return;
-  }
-  checkans(currentword,currentform);
-});
 
 function checkans(randomword,randomform) {
     
@@ -401,5 +387,17 @@ function checkans(randomword,randomform) {
       document.getElementById("displaystuff").innerHTML="Correct!";
      }
   }
+
+document.getElementById("quiz").addEventListener("click",function(){
+  quiz()
+});
+
+document.getElementById("checkans").addEventListener("click",function(){
+  if (!currentword) {
+    document.getElementById("displaystuff").innerHTML="Please select case before quizzing!";
+    return;
+  }
+  checkans(currentword,currentform);
+});
 
 </script>
