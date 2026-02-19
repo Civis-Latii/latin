@@ -24,8 +24,8 @@
 
           <button type="button" id="quiz">Next!</button>
 
-          <button id="revealdeclensions">Reveal Declensions</button><br>
-          <p id="displaystatus"></p><br>
+          <button id="revealdeclensions">Reveal Declensions</button>
+          <p id="displaystatus"></p>
 
             <table class="declensionstable" id="table">
               <tr>
@@ -117,19 +117,17 @@
     display: flex;
     flex-direction: column;
   }
-  /*.main-content {
-  }*/
 
   .buttons {
     margin-top: auto;
   }
 
   h1 {
-    color: #a30000;
+    color: #8b0000; /*#d19b08*/
     background-color: #d19b08;
-    border: 4px solid #a30000;
+    border: 4px solid #8b0000;
     border-radius: 8px;
-    padding: 5px;
+    padding: 20px;
     display: block;
     text-align: center;
     width: fit-content;
@@ -137,7 +135,7 @@
   }
 
   .selected {
-    background-color: #a30000;
+    background-color: #8b0000;
     color: #fff;
   }
 
@@ -145,23 +143,24 @@
     display: none;
     width: fit-content;
     background-color: #d19b08;
-    margin: 30px auto;
+    margin: 0 auto;
     border: 1px solid #a30000;
     border-collapse: collapse;
   }
 
   td {
-    border: 1px solid #a30000;
+    border: 1px solid #8b0000;
     padding: 1px;
   }
 
   button {
-    background-color: #d19b08;
-    border: 1px solid #a30000;
+    background-color: #a42a2e;
+    border: 0px;
+    color: white;
   }
 
   .casecheckboxes {
-    accent-color: #a30000;
+    accent-color: #8d0000;
   }
  
   label {
@@ -172,28 +171,45 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
+    width: calc(100% - 40px);
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .cases, .numbers, .genders {
     flex: 1;
     text-align: center;
-    margin: 10px 5px;
+    margin: 10px 2px;
     padding: 12px 0;
     font-size: 1.1rem;
   }
   .checkans {
     font-weight: bold;
-    width: calc(100% - 10px);
+    width: calc(100% - 40px);
     padding: 24px 0;
-    margin: 10px 5px;
+    margin: 10px 20px 5px;
     font-size: 2.2rem;
   }
   
   .cng-headings {
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-left: 5px;
+    padding-left: 20px;
     text-align: left;
+    color: #a42a2e;
+  }
+
+  #quizword {
+    min-height: 1.5em;
+    display: block;
+    margin: 0;
+  }
+
+  #checkans.flash {
+    background-color: #8b0000;
+    color: white;
+  }
+  #displaystatus {
+    min-height: 1.5em;
   }
 </style>
 
@@ -580,6 +596,10 @@ document.getElementById("quiz").addEventListener("click",function(){
 });
 
 document.getElementById("checkans").addEventListener("click",function(){
+  this.classList.add("flash");
+  setTimeout(() => {
+    this.classList.remove("flash");
+  }, 100);
   if (!currentword) {
     if (document.getElementById("quiz").clicked !== true) {
       document.getElementById("displaystatus").innerHTML="Please start the quiz before checking your answer!";
