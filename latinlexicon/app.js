@@ -223,7 +223,7 @@ class Latinword {
 
 let wordlist = [];
 import { lexicon } from "./latinlexicon.js";
-const words = lexicon.replace(/\r?\n/g,"\t").split("\t");
+const words = lexicon.trim().replace(/\r?\n/g,"\t").split("\t"); //.trim() cuts out initial newline in lexicon file
 
 for (let i=0;i<words.length;i+=4) {
   let word = new Latinword(words[i],words[i+1],words[i+2],words[i+3]);
