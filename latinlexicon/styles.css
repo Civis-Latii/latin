@@ -4,7 +4,7 @@ html, body {
     margin: 0;
   }
   body {
-    background-image: url("roman background.png");
+    background-image: url("images/roman background.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
