@@ -270,7 +270,7 @@ function quiz() {
   if (document.getElementById("table").style.display=="block") {
     document.getElementById("table").style.display="none";
   }
-  cases,numbers,genders.forEach(btn => {
+  [...cases, ...numbers, ...genders].forEach(btn => {
     btn.classList.remove("selected")
   })
   document.getElementById("displaystatus").innerHTML=""
