@@ -223,7 +223,8 @@ class Latinword {
 
 let wordlist = [];
 import { lexicon } from "./latinlexicon.js";
-const words = lexicon.trim().replace(/\r?\n/g,"\t").split("\t"); //.trim() cuts out initial newline in lexicon file
+const words = lexicon.trim().replace(/\r?\n/g,"\t").split("\t");
+
 
 for (let i=0;i<words.length;i+=4) {
   let word = new Latinword(words[i],words[i+1],words[i+2],words[i+3]);
@@ -270,9 +271,11 @@ function quiz() {
   if (document.getElementById("table").style.display=="block") {
     document.getElementById("table").style.display="none";
   }
-  [...cases, ...numbers, ...genders].forEach(btn => {
+
+  document.querySelectorAll(".cases",".numbers",".genders").forEach(btn => {
     btn.classList.remove("selected")
   })
+
   document.getElementById("displaystatus").innerHTML=""
   const randword = random(wordlist);
   let quizwords = [];
@@ -287,7 +290,6 @@ function quiz() {
       }
     })
   })
-
 
   if (quizwords.length == 0) {
     document.getElementById("displaystatus").innerHTML="Please select case before quizzing!";
@@ -328,47 +330,32 @@ document.getElementById("checkans").addEventListener("click",function(){
   checkans(currentword,currentform);
 });
 
+function setupGroup(selector, key) {
+  const buttons = document.querySelectorAll(selector);
 
-const cases = document.querySelectorAll(".cases");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", function() {
+      cng[key]=this.id.replace("set","");
+      buttons.forEach(b => b.classList.remove("selected"));
+      this.classList.add("selected");
+    });
+  });
+}
 
-cases.forEach(btn => {
-  btn.addEventListener("click", function() {
-    cng.Case=this.id.replace("set","");
-    cases.forEach(b => b.classList.remove("selected"));
-    this.classList.add("selected");
-  })
-})
+setupGroup(".cases", "Case");
+setupGroup(".numbers", "Num");
+setupGroup(".genders", "Gender");
 
-const numbers = document.querySelectorAll(".numbers");
-
-numbers.forEach(btn => {
-  btn.addEventListener("click", function() {
-    cng.Num=this.id.replace("set","");
-    numbers.forEach(b => b.classList.remove("selected"));
-    this.classList.add("selected");
-  })
-})
-
-const genders = document.querySelectorAll(".genders");
-
-genders.forEach(btn => {
-  btn.addEventListener("click", function() {
-    cng.Gender=this.id.replace("set","");
-    genders.forEach(b => b.classList.remove("selected"));
-    this.classList.add("selected");
-  })
-})
-//Bottom of selection logic
 
 document.getElementById("revealdeclensions").addEventListener("click", function() {
   table()
 })
 
 function table() {
-  const CASES = ["nom","voc","acc","gen","dat","abl"]
-  const NUMBERS = ["sg","pl"]
-  CASES.forEach(c => {
-    NUMBERS.forEach(n => {
+  const Cases = ["nom","voc","acc","gen","dat","abl"]
+  const Numbers = ["sg","pl"]
+  Cases.forEach(c => {
+    Numbers.forEach(n => {
       document.getElementById(`${c}.${n}`).innerHTML=currentword[c + n]
     })
   }) 
@@ -388,7 +375,3 @@ document.getElementById("table").style.display="none";
 //This should have Correct: x/y; Streak: ; Accuracy: z%;
 //Add homepage where users can select which cases they want to quiz on
 //Add quiz page where the quiz takes place
-//Vice-verba like layout
-//Decl. table in top right corner
-//Progress/score bar along bottom
-//Current word in BIG BOLD letters along top - e.g., maria, sea
