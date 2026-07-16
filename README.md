@@ -1,1 +1,1 @@
-<a href="/LVT/latinlexicon/">Latinlexicon</a>
+<a href="/latinlexicon/">Latinlexicon</a>
