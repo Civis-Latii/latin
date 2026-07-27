@@ -1,5 +1,4 @@
 from .words import Word, Noun, NotNoun
-
 class Lexicon:
     def __init__(self, text: str):
         self.word_type = [

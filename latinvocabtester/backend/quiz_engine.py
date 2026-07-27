@@ -1,5 +1,4 @@
 import random
-from core_lexicon.words import Word
 
 class QuizEngine:
     def __init__(self):

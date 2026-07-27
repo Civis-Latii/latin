@@ -74,5 +74,5 @@ document.getElementById("start_quiz").addEventListener("click", async function()
     const data = await response.json()
     const session_ID = data.session_ID
     sessionStorage.setItem("session_ID", session_ID)
-    window.location.assign("quiz/index.html")    
+    window.location.assign("/quizpage/index.html")    
 })

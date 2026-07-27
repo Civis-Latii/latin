@@ -1,5 +1,3 @@
-from core_lexicon.lexicon import Lexicon
-from latinvocabtester.backend.quiz_engine import QuizEngine
 from flask import Flask, request
 from flask_cors import CORS
 from uuid import uuid4

@@ -65,7 +65,7 @@ async function next_question() {
     // as soon as the headers start arriving though it ceases to be a promise
     // and becomes a tangible 'thing' you can start streaming
     // even though the whole thing has not arrived
-    const response = await fetch("/next_question", {
+    const response = await fetch("127.0.0.1:5000/next_question", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -97,7 +97,7 @@ async function next_question() {
 }
 
 async function skip_question() {
-    const response = await fetch("/skip_question", {
+    const response = await fetch("127.0.0.1:5000/skip_question", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -120,7 +120,7 @@ async function skip_question() {
 async function update_quiz_stats() {
     // Using response instead of update_quiz_stats_response for readability
     // This prevents clutter and is good practice
-    const response = await fetch("/quiz_stats", {
+    const response = await fetch("127.0.0.1:5000/quiz_stats", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -136,7 +136,7 @@ async function update_quiz_stats() {
 }
 
 async function check_answer() {
-    const response = await fetch("/check_answer", {
+    const response = await fetch("127.0.0.1:5000/check_answer", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -196,7 +196,7 @@ elements.exit.addEventListener("click", function() {
 })
 
 elements.test_same_vocab.addEventListener("click", async function() {
-    await fetch(":/next_steps", {
+    await fetch("127.0.0.1:5000/next_steps", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -209,7 +209,7 @@ elements.test_same_vocab.addEventListener("click", async function() {
 })
 
 elements.test_incorrect_vocab.addEventListener("click", async function() {
-    await fetch("/next_steps", {
+    await fetch("127.0.0.1:5000/next_steps", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
