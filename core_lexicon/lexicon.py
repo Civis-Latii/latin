@@ -1,3 +1,8 @@
+
+# Using relative imports when importing from the same package
+# This is good practice
+# 'n' number of dots ('.') mean 'go (n-1) levels up and search for the file on the right there'
+# e.g., .words goes 1-1 = 0 levels up (stays in core_lexicon) and finds words.py
 from .words import Word, Noun, NotNoun
 
 class Lexicon:

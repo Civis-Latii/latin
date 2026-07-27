@@ -1,4 +1,8 @@
 import random
+
+# Using absolute imports when importing cross-package
+# This is good practice and avoids 'from ...core_lexicon import Word'
+# 
 from core_lexicon.words import Word
 
 class QuizEngine:
