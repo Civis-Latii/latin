@@ -2,8 +2,8 @@
 # Using relative imports when importing from the same package
 # This is good practice
 # Relative imports work like this:
-# the first dot means 'stay in this package'
-# each subsequent dot means 'go one step higher/closer to the root'
+# Number of dots (indexed from 1) = number of steps towards root (indexed from 0)
+
 from .words import Word, Noun, NotNoun
 
 class Lexicon:
