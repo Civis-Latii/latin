@@ -66,7 +66,7 @@ for (const category of Object.keys(categories)) {
 }
 
 document.getElementById("start_quiz").addEventListener("click", async function() {
-    const response = await fetch("http://127.0.0.1:5000/initialise_quiz", {
+    const response = await fetch("https://Latium.eu.pythonanywhere.com/initialise_quiz", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(categories)
@@ -74,5 +74,5 @@ document.getElementById("start_quiz").addEventListener("click", async function()
     const data = await response.json()
     const session_ID = data.session_ID
     sessionStorage.setItem("session_ID", session_ID)
-    window.location.assign("/quizpage/index.html")    
+    window.location.assign("quizpage/index.html")    
 })
