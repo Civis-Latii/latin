@@ -43,7 +43,11 @@ class QuizEngine:
     def initialise_quiz(self, new_vocab: list):
         self.quiz_is_finished = False
 
-        self.vocab = new_vocab
+        # Shuffling the vocab list ONCE on initialisation
+        # This means that instead of popping a random index every question
+        # (which requires processing-intensive shuffling to move every other element along)
+        # I only have to pop the last item, with near-0 compute necessary
+        self.vocab = random.shuffle(new_vocab)
         self.number_of_questions = len(self.vocab)
         self.questions_faced = 0
 
@@ -59,8 +63,7 @@ class QuizEngine:
 
     def next_question(self) -> dict:
         self.questions_faced += 1
-        random_index = random.randrange(0, len(self.vocab))
-        self.random_word = self.vocab.pop(random_index)
+        self.random_word = self.vocab.pop()
         question_text = self.random_word.ask_question()
         return {
             "status": "OK",
