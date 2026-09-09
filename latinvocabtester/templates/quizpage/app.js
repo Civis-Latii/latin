@@ -5,7 +5,7 @@ let session_ID = null
 const JSON_header = {"Content-Type": "application/json"}
 
 // Set up the first question the moment the page loads
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
 
     /*
       Making sure everything has loaded before extracting
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
     */
     session_ID = sessionStorage.getItem("session_ID")
 
-    next_question()
-    update_quiz_stats()
+    await next_question()
+    await update_quiz_stats()
 })
 
 const elements = {
