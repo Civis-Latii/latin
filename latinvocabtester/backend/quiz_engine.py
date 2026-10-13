@@ -47,7 +47,8 @@ class QuizEngine:
         # This means that instead of popping a random index every question
         # (which requires processing-intensive shuffling to move every other element along)
         # I only have to pop the last item, with near-0 compute necessary
-        self.vocab = random.shuffle(new_vocab)
+        self.vocab = list(new_vocab) # Creating a shallow copy
+        random.shuffle(self.vocab)
         self.number_of_questions = len(self.vocab)
         self.questions_faced = 0
 
