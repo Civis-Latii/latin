@@ -82,7 +82,7 @@ async function next_question() {
       the transcript can be made
     */
     const data = await response.json()
-    elements.question_text.textContent = data.next_question
+    elements.question_text.textContent = data.content
 
     update_elements(data)
     /*
