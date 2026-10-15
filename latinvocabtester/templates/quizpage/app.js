@@ -174,9 +174,12 @@ async function check_answer() {
 
 elements.check_answer.addEventListener("click", check_answer)
 elements.answer_box.addEventListener("keydown", function(event) {
-    if (event.key == "Enter") {
-        check_answer()
+    if (event.key !== "Enter") {return}
+    if (elements.check_answer.disabled) {
+        next_question()
+        return
     }
+    check_answer()
 })
 
 elements.navigator_button.addEventListener("click", function() {
