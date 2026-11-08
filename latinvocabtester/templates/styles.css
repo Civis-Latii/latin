@@ -5,7 +5,7 @@ body {
 }
 
 #nouns_container,
-#verbs_contianer,
+#verbs_container,
 #adjectives_container,
 #other_container {
     display: flex;
