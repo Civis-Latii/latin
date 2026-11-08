@@ -67,16 +67,16 @@ for (const category of Object.keys(categories)) {
     })
 
     // all my homes rate the early return pattern
-    if button.category.lower().includes("nouns") {
+    if (category.toLowerCase().includes("nouns")) {
         nouns_container.append(button)
         continue
     }
-    if button.category.lower().includes("verbs") {
+    if (category.toLowerCase().includes("verbs")) {
         verbs_container.append(button)
         continue
     }
-    if button.category.lower().includes("adjectives") {
-        nouns_container.append(button)
+    if (category.toLowerCase().includes("adjectives")) {
+        adjectives_container.append(button)
         continue
     }
     other_container.append(button)
