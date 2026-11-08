@@ -45,7 +45,10 @@ const category_button_names = {
     "numerals": "Numerals"
 }
 
-const category_buttons_container = document.getElementById("category_buttons_container")
+const nouns_container = document.getElementById("nouns_container")
+const verbs_container = document.getElementById("verbs_container")
+const adjectives_container = document.getElementById("adjectives_container")
+const other_container = document.getElementById("other_container")
 
 for (const category of Object.keys(categories)) {
     const button = document.createElement("button")
@@ -62,7 +65,21 @@ for (const category of Object.keys(categories)) {
         // this means that if any categories are selected, start quiz is !disabled (not disabled)
         // so users can use it normally when categories are selected
     })
-    category_buttons_container.append(button)
+
+    // all my homes rate the early return pattern
+    if button.category.lower().includes("nouns") {
+        nouns_container.append(button)
+        continue
+    }
+    if button.category.lower().includes("verbs") {
+        verbs_container.append(button)
+        continue
+    }
+    if button.category.lower().includes("adjectives") {
+        nouns_container.append(button)
+        continue
+    }
+    other_container.append(button)
 }
 
 document.getElementById("start_quiz").addEventListener("click", async function() {
