@@ -1,9 +1,3 @@
-body {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-}
-
 #nouns_container,
 #verbs_container,
 #adjectives_container,
