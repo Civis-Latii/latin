@@ -57,6 +57,7 @@ for (const category of Object.keys(categories)) {
     button.textContent = category_button_names[category]
     button.addEventListener("click", function() {
         categories[category] = !categories[category]
+        button.classList.toggle("active")
         const categories_selected = Object.values(categories).includes(true)
         document.getElementById("start_quiz").disabled = !categories_selected
         // It is good practice to directly assign boolean expressions
@@ -71,7 +72,7 @@ for (const category of Object.keys(categories)) {
         nouns_container.append(button)
         continue
     }
-    if (category.toLowerCase().includes("verbs")) {
+    if (category.toLowerCase().includes("verbs") && category != "adverbs") {
         verbs_container.append(button)
         continue
     }
@@ -83,6 +84,7 @@ for (const category of Object.keys(categories)) {
 }
 
 document.getElementById("start_quiz").addEventListener("click", async function() {
+    document.getElementById("start_quiz").classList.toggle("active")
     const response = await fetch("https://Latium.eu.pythonanywhere.com/initialise_quiz", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
