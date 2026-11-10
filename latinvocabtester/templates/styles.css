@@ -1,12 +1,33 @@
 body {
-    background-image: url("images/background.png");
+    background-image: url("images/16x9background.png");
     background-size: 100% 100%;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    size: 90%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #a42a2e;
+    color: white;
+    border: 1px solid white;
+    padding: 16px 12px;
+    font-size: 1rem;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+#start_quiz {
+    font-size: 2rem;
+    padding: 0px 40px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 #buttons {
@@ -14,10 +35,14 @@ body {
     flex-direction: row;
     gap: 50px;
     width: 50%;
+    align-items: flex-start;
 }
 
+#start_quiz.active,
 #buttons button.active {
-    background-color: #a42a2e;
+    
+    background-color: #8b0000;
+
 }
 
 #nouns_container,
@@ -27,4 +52,6 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
 }
