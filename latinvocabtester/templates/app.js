@@ -49,6 +49,46 @@ const nouns_container = document.getElementById("nouns_container")
 const verbs_container = document.getElementById("verbs_container")
 const adjectives_container = document.getElementById("adjectives_container")
 const other_container = document.getElementById("other_container")
+const all_containers = [nouns_container, verbs_container, adjectives_container, other_container]
+
+function update_UI() {
+    for (const container of all_containers) {
+       const container_all_button = container.firstElementChild
+       container_all_button.classList.add("active")
+
+        for (const b of container.children) {
+            if (!b.dataset.category) {continue} // 'ignore if its the all button'
+
+            const is_selected = categories[b.dataset.category]
+            b.classList.toggle("active", is_selected)
+            container_all_button.classList.toggle("active", container_all_button.classList.contains("active") && is_selected)
+       }
+    }
+    const any_selected = Object.values(categories).includes(true)
+    document.getElementById("start_quiz").disabled = !any_selected
+}
+
+for (const container of all_containers) {
+    const button = document.createElement("button")
+    const category_name = container.id.split("_")[0]
+    button.textContent = "All " + category_name[0].toUpperCase() + category_name.slice(1)
+
+    // above is fine
+
+    button.addEventListener("click", function() {
+        const is_active = button.classList.toggle("active")
+
+        for (const b of container.children) {
+            
+            // If it's empty - the all buttons don't have a category
+            if (!b.dataset.category) {continue}
+            categories[b.dataset.category] = is_active
+
+    }
+        update_UI()
+    })
+    container.append(button)
+}
 
 for (const category of Object.keys(categories)) {
     const button = document.createElement("button")
@@ -57,17 +97,16 @@ for (const category of Object.keys(categories)) {
     button.textContent = category_button_names[category]
     button.addEventListener("click", function() {
         categories[category] = !categories[category]
-        button.classList.toggle("active")
-        const categories_selected = Object.values(categories).includes(true)
-        document.getElementById("start_quiz").disabled = !categories_selected
+        update_UI()
         // It is good practice to directly assign boolean expressions
         // if/else is unnecessary here
         // object.values(categories).includes(true) is inverted
         // this means that if any categories are selected, start quiz is !disabled (not disabled)
         // so users can use it normally when categories are selected
+
     })
 
-    // all my homes rate the early return pattern
+    // all my homies rate the early return pattern
     if (category.toLowerCase().includes("nouns") && category != "pronouns") {
         nouns_container.append(button)
         continue
