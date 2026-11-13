@@ -5,19 +5,25 @@
         <meta charset="UTF-8">
         <title>LVT Quiz Page</title>
         <script src="./app.js" defer></script>
+        <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <button id="navigator_button" data-state="skip">Skip</button>
-        <button id="check_answer">Check Answer</button>
+        <div id="main">
+            <p id="quiz_stats"></p>
+            <p id="question_text"></p>
+            <p id="answers_and_status"></p>
 
-        <input type="text" id="answer_box" placeholder="Enter your answer here:">
+            <input type="text" id="answer_box" placeholder="Enter your answer here:">
 
-        <p id="question_text"></p>
-        <p id="answers_and_status"></p>
-        <p id="quiz_stats"></p>
-
-        <button id="exit">Exit</button>
-        <button id="test_same_vocab" disabled>Test Same Vocab</button>
-        <button id="test_incorrect_vocab" disabled>Test Incorrect Vocab</button>
+            <div id="testing_buttons">
+                <button id="navigator_button" data-state="skip">Skip</button>
+                <button id="check_answer">Check Answer</button>
+            </div>
+            <div id="choice_buttons">
+                <button id="exit">Exit</button>
+                <button id="test_same_vocab" disabled>Test Same Vocab</button>
+                <button id="test_incorrect_vocab" disabled>Test Incorrect Vocab</button>
+            </div>
+        </div>
     </body>
 </html>

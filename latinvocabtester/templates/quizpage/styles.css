@@ -1,0 +1,74 @@
+body {
+    background-image: url("../images/16x9background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 200px;
+}
+
+button {
+    background-color: #a42a2e;
+    color: white;
+    border: 1px solid white;
+    padding: 16px 12px;
+    font-size: 1.5rem;
+    background-clip: padding-box;
+    border-radius: 8px;
+    flex: 1;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+#testing_buttons,
+#choice_buttons {
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    gap: 8px;
+}
+
+#quiz_stats,
+#question_text,
+#answers_and_status,
+#answer_box {
+    width: 550px;
+    background-color: #a42a2e;
+    color: white;
+    border-radius: 8px;
+    margin: 0;
+    padding: 16px 12px;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+}
+
+#answer_box {
+    border: 5px double white; /* Remove the 3d shadow for this specifically */
+}
+
+#answers_and_status {
+    min-height: calc(1.5rem * 1.5 + 32px);
+}
+
+#answers_and_status:empty {
+    visibility: hidden;
+}
+
+#main {
+    background-color: rgba(0,0,0,0.25);
+    opacity: 1;
+    border-radius: 16px;
+    padding: 25px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 8px;
+}
